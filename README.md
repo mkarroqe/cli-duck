@@ -5,7 +5,7 @@ This project is an exercise in creating command line tools in Go using Cobra.
 <img src="https://raw.githubusercontent.com/RubberDuckDebugging/rubberduckdebugging.github.io/master/images/rubberducky.png" style="width: 50px" /> Further rubber duck reading: https://rubberduckdebugging.com/
 
 # Usage
-`cli-duck [--flags] <command> [<args>]`
+`cli-duck [--flags] <command>`
 
 ### Commands
 | Command | Description |
