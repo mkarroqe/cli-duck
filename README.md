@@ -18,11 +18,11 @@ This project is an exercise in creating command line tools in Go using Cobra.
 | - | - | - |
 | `--cool` | `cli-duck hi --cool` | Rubber duck will be wearing sunglasses. |
 | `--count` | `cli-duck hi --count=2` | Takes int value for number of ducks that appear. Default value is 1. |
-| `--size` |  `cli-duck hi --size large` | Takes string value `small` or `large`. <br/>Default value is `small`. |
+| `--size` |  `cli-duck hi --size large` | Takes string value `small` or `large`. Default value is `small`. |
 
 # Credits
 Small: https://textart.io/art/OUmq7JexuhjpvBnTpL_HAQeF/duckling-swimming
-Medium and Large: https://textart.sh/topic/duck
+Large: https://textart.sh/topic/duck
 
 ```
         __
