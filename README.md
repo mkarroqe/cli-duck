@@ -18,10 +18,56 @@ This project is an exercise in creating command line tools in Go using Cobra.
 | - | - | - |
 | `--cool` | `cli-duck hi --cool` | Rubber duck will be wearing sunglasses. |
 | `--count` | `cli-duck hi --count=2` | Takes int value for number of ducks that appear. Default value is 1. |
-| `--size` |  `cli-duck hi --size large` | Takes string value `small`, `medium`, or `large`. <br/>Default and other values will default to `small`. |
+| `--size` |  `cli-duck hi --size large` | Takes string value `small` or `large`. <br/>Default value is `small`. |
 
 # Credits
-Original text art source: https://textart.sh/topic/duck
+Small: https://textart.io/art/OUmq7JexuhjpvBnTpL_HAQeF/duckling-swimming
+Medium and Large: https://textart.sh/topic/duck
 
+```
+        __
+    ___( o)>
+    \ <_. )
+     `---'   
+        __
+    ___(⌐■)>
+    \ <_. )
+     `---' 
+     
+                      ██████                                    
+                    ██      ██                                  
+                  ██          ██                                
+                  ██      ██  ██                                
+                  ██        ░░░░██                              
+                    ██      ████                                
+      ██              ██  ██                                    
+    ██  ██        ████    ██                                    
+    ██    ████████          ██                                  
+    ██                        ██                                
+      ██              ██      ██                                
+      ██    ██      ██        ██                                
+        ██    ████████      ██                                  
+        ██                  ██                                  
+          ████          ████                                    
+              ██████████        
+              
+              
+                      ██████                                    
+                    ██      ██                                  
+                  ██          ██                                
+                  ██    ⌐-██--██                                
+                  ██        ░░░░██                              
+                    ██      ████                                
+      ██              ██  ██                                    
+    ██  ██        ████    ██                                    
+    ██    ████████          ██                                  
+    ██                        ██                                
+      ██              ██      ██                                
+      ██    ██      ██        ██                                
+        ██    ████████      ██                                  
+        ██                  ██                                  
+          ████          ████                                    
+              ██████████       
 
-
+ ```                                               
+                                                         
