@@ -1,5 +1,5 @@
 # cli-duck
-Virtual rubber duck that to live in your terminal to support you when you need it. When called, `cli-duck` presents you with an ASCII duck. 
+Virtual rubber duck that lives in your terminal to support you when you need it. When called, `cli-duck` presents you with an ASCII duck. 
 This project is an exercise in creating command line tools in Go using Cobra.
 
 <img src="https://raw.githubusercontent.com/RubberDuckDebugging/rubberduckdebugging.github.io/master/images/rubberducky.png" style="width: 50px" /> Further rubber duck reading: https://rubberduckdebugging.com/
