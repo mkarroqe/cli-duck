@@ -11,6 +11,8 @@ import (
 
 var stdDuck = "    __\n___( o)>\n\\ <_. )\n `---'"
 var coolDuck = "    __\n___(⌐■)>\n\\ <_. )\n `---'"
+var stdDuckL = "		      ██████                                    \n                    ██      ██                                  \n                  ██          ██                                \n                  ██      ██  ██                                \n                  ██        ░░░░██                              \n                    ██      ████                                \n      ██              ██  ██                                    \n    ██  ██        ████    ██                                    \n    ██    ████████          ██                                  \n    ██                        ██                                \n      ██              ██      ██                                \n      ██    ██      ██        ██                                \n        ██    ████████      ██                                  \n        ██                  ██                                  \n          ████          ████                                    \n              ██████████        "
+var coolDuckL = "		      ██████                                    \n                    ██      ██                                  \n                  ██          ██                                \n                  ██     ⌐-██--██                                \n                  ██        ░░░░██                              \n                    ██      ████                                \n      ██              ██  ██                                    \n    ██  ██        ████    ██                                    \n    ██    ████████          ██                                  \n    ██                        ██                                \n      ██              ██      ██                                \n      ██    ██      ██        ██                                \n        ██    ████████      ██                                  \n        ██                  ██                                  \n          ████          ████                                    \n              ██████████        "
 
 // hiCmd represents the hi command
 var hiCmd = &cobra.Command{
@@ -19,14 +21,23 @@ var hiCmd = &cobra.Command{
 	Long:  `Rubber duck will appear. It's ready to listen.`,
 
 	Run: func(cmd *cobra.Command, args []string) {
+		superSize, _ := cmd.Flags().GetBool("large")
 		coolStatus, _ := cmd.Flags().GetBool("cool")
 		reqCount, _ := cmd.Flags().GetInt("count")
 
 		for i := 0; i < reqCount; i++ {
-			if coolStatus == true {
-				fmt.Println(coolDuck)
+			if superSize == true {
+				if coolStatus == true {
+					fmt.Println(coolDuckL)
+				} else {
+					fmt.Println(stdDuckL)
+				}
 			} else {
-				fmt.Println(stdDuck)
+				if coolStatus == true {
+					fmt.Println(coolDuck)
+				} else {
+					fmt.Println(stdDuck)
+				}
 			}
 		}
 	},
@@ -36,6 +47,7 @@ func init() {
 	rootCmd.AddCommand(hiCmd)
 	hiCmd.PersistentFlags().Bool("cool", false, "Rubber duck will be wearing sunglasses.")
 	hiCmd.PersistentFlags().Int("count", 1, "Generates a specific number of ducks.")
+	hiCmd.PersistentFlags().Bool("large", false, "Big ducky.")
 
 	// Here you will define your flags and configuration settings.
 
