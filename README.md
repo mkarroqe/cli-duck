@@ -7,34 +7,36 @@ This project is an exercise in creating command line tools in Go using Cobra.
 # Usage
 `go run main.go cli-duck <command> [--flags]`
 
-### Commands
+### Commands 
 | Command | Description |
 | - | - |
-| help | Prints out usage and options. |
 | hi | Rubber duck will appear. It's ready to listen. |
 
-### Options
+> Accepting requests for more!
+
+### Flags
 | Flag | Example | Description |
 | - | - | - |
 | `--cool` | `cli-duck hi --cool` | Rubber duck will be wearing sunglasses. |
 | `--count` | `cli-duck hi --count=2` | Takes int value for number of ducks that appear. Default value is 1. |
+| `--help` | `cli-duck hi --help` | Prints Usage and flags. |
 | `--size` |  `cli-duck hi --size large` | Takes string value `small` or `large`. Default value is `small`. |
 
-# Credits
-Small: https://textart.io/art/OUmq7JexuhjpvBnTpL_HAQeF/duckling-swimming
-Large: https://textart.sh/topic/duck
-
+# Demo
 ```
-        __
-    ___( o)>
-    \ <_. )
-     `---'   
-        __
-    ___(⌐■)>
-    \ <_. )
-     `---' 
-     
-                      ██████                                    
+marykarroqe@Marys-MBP cli-duck % go run main.go hi                    
+    __
+___( o)>
+\ <_. )
+ `---'
+marykarroqe@Marys-MBP cli-duck % go run main.go hi --cool
+    __
+___(⌐■)>
+\ <_. )
+ `---'
+marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=large
+
+		      ██████                                    
                     ██      ██                                  
                   ██          ██                                
                   ██      ██  ██                                
@@ -49,13 +51,14 @@ Large: https://textart.sh/topic/duck
         ██    ████████      ██                                  
         ██                  ██                                  
           ████          ████                                    
-              ██████████        
+              ██████████      
               
-              
-                      ██████                                    
+marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=large --cool
+
+		      ██████                                    
                     ██      ██                                  
                   ██          ██                                
-                  ██    ⌐-██--██                                
+                  ██     ⌐-██--██                                
                   ██        ░░░░██                              
                     ██      ████                                
       ██              ██  ██                                    
@@ -67,7 +70,22 @@ Large: https://textart.sh/topic/duck
         ██    ████████      ██                                  
         ██                  ██                                  
           ████          ████                                    
-              ██████████       
+              ██████████        
+              
+marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=small --count=2
+    __
+___( o)>
+\ <_. )
+ `---'
+    __
+___( o)>
+\ <_. )
+ `---'
+marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=megagigahuge   
+Sorry, we couldn't find any duckies of size megagigahuge.
+```
 
- ```                                               
-                                                         
+# Credits
+- Small: https://textart.io/art/OUmq7JexuhjpvBnTpL_HAQeF/duckling-swimming
+- Large: https://textart.sh/topic/duck
+- Cool Mod: yours truly                        
