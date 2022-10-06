@@ -49,7 +49,7 @@ func init() {
 	rootCmd.AddCommand(hiCmd)
 	hiCmd.PersistentFlags().Bool("cool", false, "Rubber duck will be wearing sunglasses.")
 	hiCmd.PersistentFlags().Int("count", 1, "Generates a specific number of ducks.")
-	hiCmd.PersistentFlags().String("size", "small", "Big ducky?")
+	hiCmd.PersistentFlags().String("size", "small", "Generates a ducky of size small (default) or large.")
 
 	// Here you will define your flags and configuration settings.
 
