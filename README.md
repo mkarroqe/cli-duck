@@ -8,38 +8,50 @@ This project is an exercise in creating command line tools in Go using Cobra.
 `go run main.go cli-duck <command> [--flags]`
 
 ### Commands 
-| Command | Description |
-| - | - |
-| hi | Rubber duck will appear. It's ready to listen. |
+| Command | Resource | Flags | Description |
+| - | - | - | - |
+| hi | - | `--cool`, `--count`, `--size`  | Rubber duck will appear. It's ready to listen. |
+| say | nothing | `--cool`, `--size` | The duck says.. nothing. But the tension of a speech bubble is there. |
+| say | hello | `--cool`, `--lang`, `--size` | The duck speaks! It says hello. |
 
 > Accepting requests for more!
 
 ### Flags
-| Flag | Example | Description |
-| - | - | - |
-| `--cool` | `cli-duck hi --cool` | Rubber duck will be wearing sunglasses. |
-| `--count` | `cli-duck hi --count=2` | Takes int value for number of ducks that appear. Default value is 1. |
-| `--help` | `cli-duck hi --help` | Prints Usage and flags. |
-| `--size` |  `cli-duck hi --size large` | Takes string value `small` or `large`. Default value is `small`. |
+| Flag | Description |
+| - | - |
+| `--cool` | Rubber duck will be wearing sunglasses. |
+| `--count` | Takes int value for number of ducks that appear. Default value is 1. |
+| `--help` | Prints Usage and flags. |
+| `--lang`  | Changes duck's speaking language. Takes string values `albanian` (duck), `duckspeak` (duck), `english` (human), and `french` (duck). Default is `duckspeak`. |
+| `--size` | Takes string value `small` or `large`. Default value is `small`. |
 
-# Demo
+# Examples
 ```
 marykarroqe@Marys-MBP cli-duck % go run main.go hi                    
     __
 ___( o)>
 \ <_. )
  `---'
+
 marykarroqe@Marys-MBP cli-duck % go run main.go hi --cool
     __
 ___(⌐■)>
 \ <_. )
  `---'
+
+marykarroqe@Marys-MBP cli-duck % go run main.go say hello --lang=french 
+
+    __     /coin/
+___( o)>  /
+\ <_. )
+ `---'
+
 marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=large
 
-		      ██████                                    
+		              ██████                                    
                     ██      ██                                  
                   ██          ██                                
-                  ██      ██  ██                                
+                  ██      ██   ██                                
                   ██        ░░░░██                              
                     ██      ████                                
       ██              ██  ██                                    
@@ -55,7 +67,7 @@ marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=large
               
 marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=large --cool
 
-		      ██████                                    
+		              ██████                                    
                     ██      ██                                  
                   ██          ██                                
                   ██     ⌐-██--██                                
@@ -82,7 +94,7 @@ ___( o)>
 \ <_. )
  `---'
 marykarroqe@Marys-MBP cli-duck % go run main.go hi --size=megagigahuge   
-Sorry, we couldn't find any duckies of size megagigahuge.
+A megagigahuge duck is too much to handle.
 ```
 
 # Credits

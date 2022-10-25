@@ -19,13 +19,14 @@ var sayhelloCmd = &cobra.Command{
 		fullDuck := ""
 
 		// --lang
-		lang, _ := cmd.Flags().GetString("lang")
-		message := ""
-		if lang == "english" {
-			message = "hello"
-		} else {
-			message = "quack"
+		translations := map[string]string{
+			"albanian":  "mak",
+			"duckspeak": "quack",
+			"english":   "..hello",
+			"french":    "coin",
 		}
+		lang, _ := cmd.Flags().GetString("lang")
+		message := translations[lang]
 
 		// --cool
 		cool, _ := cmd.Flags().GetBool("cool")
@@ -45,7 +46,7 @@ var sayhelloCmd = &cobra.Command{
 		} else if size == "large" {
 			fullDuck = duckie.CreateLargeDuck()
 		} else {
-			fullDuck = "A " + size + " duck is too hot to handle."
+			fullDuck = "A " + size + " duck is too much to handle."
 		}
 
 		fmt.Println(fullDuck)

@@ -36,7 +36,7 @@ var hiCmd = &cobra.Command{
 			} else if size == "large" {
 				fullDuck = duckie.CreateLargeDuck()
 			} else {
-				fullDuck = "A " + size + " duck is too hot to handle."
+				fullDuck = "A " + size + " duck is too much to handle."
 			}
 
 			fmt.Println(fullDuck)
