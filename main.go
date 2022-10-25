@@ -1,6 +1,5 @@
 /*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
+Copyright © 2022 Mary Karroqe <mkarroqe@gmail.com>
 */
 package main
 
