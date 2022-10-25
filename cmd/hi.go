@@ -1,18 +1,15 @@
 /*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
+Copyright © 2022 Mary Karroqe <mkarroqe@gmail.com>
 */
 package cmd
 
 import (
+	// "errors"
+
 	"fmt"
 
 	"github.com/spf13/cobra"
 )
-
-var stdDuck = "    __\n___( o)>\n\\ <_. )\n `---'"
-var coolDuck = "    __\n___(⌐■)>\n\\ <_. )\n `---'"
-var stdDuckL = "\n		      ██████                                    \n                    ██      ██                                  \n                  ██          ██                                \n                  ██      ██  ██                                \n                  ██        ░░░░██                              \n                    ██      ████                                \n      ██              ██  ██                                    \n    ██  ██        ████    ██                                    \n    ██    ████████          ██                                  \n    ██                        ██                                \n      ██              ██      ██                                \n      ██    ██      ██        ██                                \n        ██    ████████      ██                                  \n        ██                  ██                                  \n          ████          ████                                    \n              ██████████        \n"
-var coolDuckL = "\n		      ██████                                    \n                    ██      ██                                  \n                  ██          ██                                \n                  ██     ⌐-██--██                                \n                  ██        ░░░░██                              \n                    ██      ████                                \n      ██              ██  ██                                    \n    ██  ██        ████    ██                                    \n    ██    ████████          ██                                  \n    ██                        ██                                \n      ██              ██      ██                                \n      ██    ██      ██        ██                                \n        ██    ████████      ██                                  \n        ██                  ██                                  \n          ████          ████                                    \n              ██████████        \n"
 
 // hiCmd represents the hi command
 var hiCmd = &cobra.Command{
@@ -21,26 +18,28 @@ var hiCmd = &cobra.Command{
 	Long:  `Rubber duck will appear. It's ready to listen.`,
 
 	Run: func(cmd *cobra.Command, args []string) {
-		superSize, _ := cmd.Flags().GetString("size")
-		coolStatus, _ := cmd.Flags().GetBool("cool")
-		reqCount, _ := cmd.Flags().GetInt("count")
+		size, _ := cmd.Flags().GetString("size")
+		cool, _ := cmd.Flags().GetBool("cool")
+		count, _ := cmd.Flags().GetInt("count")
+		fullDuck := ""
 
-		for i := 0; i < reqCount; i++ {
-			if superSize == "large" {
-				if coolStatus == true {
-					fmt.Println(coolDuckL)
-				} else {
-					fmt.Println(stdDuckL)
-				}
-			} else if superSize == "small" {
-				if coolStatus == true {
-					fmt.Println(coolDuck)
-				} else {
-					fmt.Println(stdDuck)
-				}
+		// we only need to create the duck once, since right now, multiple counts will always be of the same duck
+		duckie := Duck{
+			Size:   size,
+			Cool:   cool,
+			Speaks: false,
+		}
+
+		for i := 0; i < count; i++ {
+			if size == "little" {
+				fullDuck = duckie.CreateLittleDuck()
+			} else if size == "large" {
+				fullDuck = duckie.CreateLargeDuck()
 			} else {
-				fmt.Println("Sorry, we couldn't find any duckies of size " + superSize + ".")
+				fullDuck = "A " + size + " duck is too hot to handle."
 			}
+
+			fmt.Println(fullDuck)
 		}
 	},
 }
@@ -50,14 +49,4 @@ func init() {
 	hiCmd.PersistentFlags().Bool("cool", false, "Rubber duck will be wearing sunglasses.")
 	hiCmd.PersistentFlags().Int("count", 1, "Generates a specific number of ducks.")
 	hiCmd.PersistentFlags().String("size", "small", "Generates a ducky of size small (default) or large.")
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// hiCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// hiCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
